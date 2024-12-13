@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashu-ui
+  name: ashu-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashu-ui
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashu-ui
+    spec:
+      containers:
+      - image: adminer
+        name: adminer
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
