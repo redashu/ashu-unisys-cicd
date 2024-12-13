@@ -39,7 +39,7 @@ chrome_driver.find_element(By.XPATH,"//input[@type='submit']").click()
 # find the message data 
 message = chrome_driver.find_element(By.CLASS_NAME,"alert-success").text
 
-time.sleep(3)
+time.sleep(4)
 
 
 # printnt message
