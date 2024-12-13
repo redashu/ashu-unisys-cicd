@@ -1,12 +1,21 @@
 from selenium import webdriver
-import time 
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-# we are only import webdriver from entire selenium 
+from selenium.webdriver.chrome.options import Options
+import time
 
-# loading particular driver of browser 
-# initilizing web driver 
-chrome_driver = webdriver.Chrome()
+# Setting up headless mode
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Enable headless mode
+chrome_options.add_argument("--disable-gpu")  # Disable GPU (Windows-specific)
+chrome_options.add_argument("--no-sandbox")  # Required for running as root in Docker
+chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome limited resource problems
+ 
+# Initializing the web driver with options
+service = Service("/usr/bin/chromedriver")  # Update the path to chromedriver
+chrome_driver = webdriver.Chrome(service=service, options=chrome_options)
+
 # opening a web url 
 chrome_driver.get("https://rahulshettyacademy.com/angularpractice/")
 
